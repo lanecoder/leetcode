@@ -41,3 +41,15 @@ public:
 	}    
 }
 };
+
+int main(){
+
+    Solution s;
+    int arr1[7] = {1,2,3,4,4,5,6};
+    int arr2[8] = {3,3,4,5,6,7,8,9};
+    vector<int> v1(arr1, arr1+7);
+    vector<int> v2(arr2, arr2+8);
+    s.findMedianSortedArr(v1, v2);
+
+    return 0;
+}
