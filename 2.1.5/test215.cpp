@@ -1,4 +1,6 @@
 #include<iostream>
+#include<vector>
+#include<stdint.h>
 
 class Solution{
 public:
