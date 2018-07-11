@@ -32,13 +32,13 @@ public:
 
 int main(){
 
-    int arr[6] = {1,6,8,3,4,5};
+    int arr[6] = {1,4,7,10,14,20};
     vector<int> ve(arr, arr+6);
     Solution s;
-    vector<int> idex = s.findtwonumber(ve, 7);
+    vector<int> idex = s.findtwonumber(ve, 11);
     //vector<int>::iterator it;
-    for(int i = 0;i <= idex.size();i++){
-	cout<< idex[i] << endl;
+    for(int i = 0;i < idex.size();i++){
+    	cout<< idex[i] << endl;
     }
     return 0;
 }
