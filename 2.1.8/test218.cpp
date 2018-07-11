@@ -1,3 +1,11 @@
+// given an array S of n integers,are there elements a,b,c
+// in S such that a+b+c=0? find all unique triplets in the
+// array which the sum of zero.
+// * elements in a triplets(a,b,c) must be in non-descending order(a<=b<=c)
+// * the solution set must not contain duplicate triplets
+// for example,given array S = {-1,0,1,2,-1,-4}.A solution set is
+// {-1, 0, 1}
+// {-1, -1, 2}
 #include<iostream>
 #include<vector>
 #include<algorithm>
