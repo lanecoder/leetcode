@@ -5,22 +5,22 @@
 
 #include<iostream>
 #include<vector>
-#include<unordered_map>
+#include<map>
 
 using namespace std;
 
 class Solution{
 public:
     vector<int> findtwonumber(vector<int> & source, int target){
-	unoredered_map<int,int>  map1;
+	map<int,int>  map1;
 	int num = source.size();
-	for(auto i:num) map1[num[i]]=i;
+	for(int i = 0; i < source.size();i++) {map1[source[i]]=i;}
 
 	vector<int> result;
 
 	for(int i = 0; i< num;i++){
 	    int sourcetwo = target - source[i];
-	    if(map1.find(sourcetwo) != map1.end() && map1[sourcetwo] > i){
+	    if(map1.count(sourcetwo) != 0 && map1[sourcetwo] > i){
 		result.push_back(i);
 		result.push_back(map1[sourcetwo]);
 		break;
@@ -36,6 +36,9 @@ int main(){
     vector<int> ve(arr, arr+6);
     Solution s;
     vector<int> idex = s.findtwonumber(ve, 7);
-    cout<<"result: "<<idex<<endl;
+    //vector<int>::iterator it;
+    for(int i = 0;i <= idex.size();i++){
+	cout<< idex[i] << endl;
+    }
     return 0;
 }
