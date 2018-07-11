@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
+#include <map>
 // given an unsorted array of integers,find the length of the longest consecutive sequence.
 // for example,given [100,4,200,2,1,3],the longest consecutive sequence is [1,2,3,4].return
 // its length:4
@@ -11,23 +11,27 @@ using namespace std;
 class Solution{
 public:
     int longestConsective(const vector<int> &num){
-	unordered_map<int,bool> use;
-	for(auto i : num){ use[i] = false;}
+	map<int,bool> use;
+	
+	//for (auto i : num){ use[i] = false;}
+	for(int i = 0; i < num.size();i++){
+	    use[num[i]] = false;
+	}
 	
 	int longest = 0;
 	
-	for(auto i : num){
-	    if(use[i]) continue;
+	for (int i = 0;i < num.size();i++){
+	    if(use[num[i]]) continue;
 
-	    use[i] = true;
+	    use[num[i]] = true;
 
 	    int length = 1;
 	
-	    for(int j = i+1; use.find(j)!=use.end();j++){
+	    for(int j = num[i]+1; use.count(j)!=0;j++){
 		use[j]=true;
 		length++;
 	    }	
-	    for(int j = i-1; use.find(j)!=use.end();j--){
+	    for(int j = num[i]-1; use.count(j)!=0;j--){
 		use[j]=true;
 		length++;
 	    }
