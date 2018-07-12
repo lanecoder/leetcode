@@ -1,6 +1,13 @@
-nclude<iostream>
+#include<iostream>
 #include<vector>
 #include<algorithm>
+
+// 3Sum Closest
+// given an array of n integers,find these integers in S such that the sum
+// is closest to a given number target.return the sum of the three integers.
+// you may assume that each input would have exactly one slution.
+// for example,given array S = {-1, 2, 1, -4},and target = 1.
+// the sum that is closeer to the target is 2.{-1+2+1=2}.
 
 using namespace std;
 
@@ -49,3 +56,16 @@ public:
 	return v;
    }
 };
+
+
+int main(){
+
+    int arr[4] = {-1,2,1,-4};
+    vector<int> ve(arr, arr+4);
+    Solution s;
+    vector<int> ve1 = s.closesum(ve, 1);
+    for(int i = 0;i<ve1.size();i++){
+	cout<<ve1[i]<<endl;
+    }   
+    return 0;
+}
