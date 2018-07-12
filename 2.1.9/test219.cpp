@@ -1,4 +1,4 @@
-#include<iostream>
+nclude<iostream>
 #include<vector>
 #include<algorithm>
 
@@ -49,4 +49,3 @@ public:
 	return v;
    }
 };
-
