@@ -11,16 +11,15 @@ public:
 	sort(num.begin(), num.end());
 	vector< vector<int> > se1;
 	if(num.size() < 4)return se1;
-	int i = 0;
-	int j = 0;
+	int i = 0; int j = 0;
 	int x = 0;
 	int k = num.size()-1;
 	
 	vector<int> temp(4);
 
-	for(i;i<int(k-2);i++){
+	for(i;i<k-2;i++){
 	   temp[0] = num[i];
-	   for(j=i+1;j<int(k-1);j++){
+	   for(j=i+1;j<k-1;j++){
 		if(j > i+1 && num[j]==num[j-1])continue;
 		temp[1] = num[j];
 		x = j+1;
@@ -31,16 +30,21 @@ public:
 			x++; k--;		
 		    }
 		    else if((temp[0]+temp[1]+temp[2]+temp[3])>target)k--;
-		    else j++;
-		    
-		    //while(num[x]==num[x-1])x++;
-		    //while(num[k]==num[k+1])k--;
+		    else x++; 
 		}	
 	   }
 	}
-    sort(se1.begin(), se1.end());
-    se1.erase(unique(se1.begin(), se1.end()), se1.end());
     return se1;
+    }
+
+    void print_out(vector< vector<int> > & num){
+	for(int i = 0;i<num.size();i++){
+	    vector<int> ve = num[i];
+	    for(int j = 0;j<ve.size();j++){
+		cout<<"ve["<<j<<"]: "<<ve[j]<<" ";
+	    }
+	    cout<<endl;
+	}
     }
 };
 
@@ -50,14 +54,8 @@ int main(){
     int arr[6] = {-1, 0, 1, 0, 2, -2};
     vector<int> ve(arr, arr+6);
     Solution s;
+    cout<<"begin"<<endl;
     vector< vector<int> > se = s.fournum(ve, 0);
-   // set< vector<int> >::iterator ite1 = se.begin();
-   // set< vector<int> >::iterator ite2 = se.end();
-   // for(;ite1 != ite2;ite1++){
-   //	for(int i = 0;i<(*ite1).size();i++){
-   //	    cout<<(*ite1)[i]<<endl;
-   //	}
-   // }
-    cout<<"haha"<<endl;
+    s.print_out(se);
     return 0;
 }
