@@ -7,14 +7,15 @@ using namespace std;
 
 class Solution{
 public:
-    set< vector<int> > fournum(vector<int> & num, int target){
+    vector< vector<int> > fournum(vector<int> & num, int target){
 	sort(num.begin(), num.end());
-
+	vector< vector<int> > se1;
+	if(num.size() < 4)return se1;
 	int i = 0;
 	int j = 0;
 	int x = 0;
 	int k = num.size()-1;
-	set< vector<int> > se1;
+	
 	vector<int> temp(4);
 
 	for(i;i<int(k-2);i++){
@@ -26,7 +27,7 @@ public:
 		while(x<k){
 		    temp[2] = num[x]; temp[3] = num[k];
 		    if((temp[0]+temp[1]+temp[2]+temp[3])==target){
-			se1.insert(temp);
+			se1.push_back(temp);
 			x++; k--;		
 		    }
 		    else if((temp[0]+temp[1]+temp[2]+temp[3])>target)k--;
@@ -37,7 +38,9 @@ public:
 		}	
 	   }
 	}
-    return se1;		
+    sort(se1.begin(), se1.end());
+    se1.erase(unique(se1.begin(), se1.end()), se1.end());
+    return se1;
     }
 };
 
@@ -47,7 +50,7 @@ int main(){
     int arr[6] = {-1, 0, 1, 0, 2, -2};
     vector<int> ve(arr, arr+6);
     Solution s;
-    set< vector<int> > se = s.fournum(ve, 0);
+    vector< vector<int> > se = s.fournum(ve, 0);
    // set< vector<int> >::iterator ite1 = se.begin();
    // set< vector<int> >::iterator ite2 = se.end();
    // for(;ite1 != ite2;ite1++){
@@ -55,6 +58,6 @@ int main(){
    //	    cout<<(*ite1)[i]<<endl;
    //	}
    // }
-
+    cout<<"haha"<<endl;
     return 0;
 }
