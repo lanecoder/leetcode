@@ -3,6 +3,13 @@
 #include<string>
 #include<algorithm>
 
+// the set [1,2,3...n] contains a total of !n unique permulation
+// by listing and labeling all of the permulation in order,we get
+// the following sequence(ie,for n=3):
+// "123" "132" "213" "231" "312" "321"
+// given n and k,return the kth permulation sequence
+// note:given n will be between 1 and 9 inclusive
+
 using namespace std;
 
 class Solution{
